@@ -27,4 +27,9 @@ export class ProductService {
   saveProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(`http://localhost:8089/products`,product);
   }
+
+  public searchProducts(keyword:string):Observable<Array<Product>>{
+    return this.http.get<Array<Product>>(`http://localhost:8089/products?name_like=${keyword}`);
+
+  }
 }

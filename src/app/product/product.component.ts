@@ -4,16 +4,21 @@ import {HttpClient} from "@angular/common/http";
 import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
 import {Observable} from "rxjs";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+  ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit{
-  products :Array<Product>=[];
+  public products :Array<Product>=[];
+  public keyword : string="";
   constructor(private productService:ProductService) {
   }
   ngOnInit() {
@@ -53,4 +58,13 @@ export class ProductComponent implements OnInit{
       }
   })
 }
+
+  searchProducts() {
+    this.productService.searchProducts(this.keyword).subscribe({
+      next : value => {
+        this.products=value;
+      }
+    })
+
+  }
 }
