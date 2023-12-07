@@ -1,34 +1,70 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Computer",
-      "price": 2222,
+      "id": 2,
+      "name": "Laptop",
+      "price": 1099.99,
+      "checked": true
+    },
+    {
+      "id": 3,
+      "name": "Smart TV",
+      "price": 799.99,
       "checked": false
     },
     {
-      "id": "2",
-      "name": "Printer",
-      "price": 4000,
-      "checked": false
+      "id": 4,
+      "name": "Wireless Earbuds",
+      "price": 129.99,
+      "checked": true
     },
     {
-      "id": "3",
-      "name": "Phone",
-      "price": 8700,
-      "checked": false
+      "id": 5,
+      "name": "Laptop",
+      "price": 1099.99,
+      "checked": true
     },
     {
-      "id": "4",
-      "name": "HeadPhone",
-      "price": 8700,
-      "checked": false
+      "id": 6,
+      "name": "Tablette",
+      "price": 1099.99,
+      "checked": true
     },
     {
-      "id": "5",
-      "name": "Fax",
-      "price": 8700,
-      "checked": false
+      "id": 7,
+      "name": "TV",
+      "price": 1099.99,
+      "checked": true
+    },
+    {
+      "id": 8,
+      "name": "Smart Watch",
+      "price": 1099.99,
+      "checked": true
+    },
+    {
+      "id": 9,
+      "name": "Camera",
+      "price": 1099.99,
+      "checked": true
+    },
+    {
+      "name": "samsung galaxy A04",
+      "price": "4000",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "samsung galaxy A04",
+      "price": "4000",
+      "checked": true,
+      "id": 11
+    },
+    {
+      "name": "ss",
+      "price": "0ss",
+      "checked": false,
+      "id": 12
     }
   ]
 }
