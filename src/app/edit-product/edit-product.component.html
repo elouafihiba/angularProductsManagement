@@ -1,9 +1,9 @@
 <div class="p-3">
   <div class="card-body">
     <div class="card-header">
-    Product ID = {{productId}}
+        Product ID = {{productId}}
     </div>
-    <div class="card-body">
+    <div class="card-body" *ngIf="productFormGroup">
       <form [formGroup]="productFormGroup" (submit)="updateProduct()">
         <div class="mb-3">
           <label class="form-label">Name</label>

@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {FormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
 import {RouterLink} from "@angular/router";
+import {AppStateService} from "../services/app-state.service";
 
 @Component({
   selector: 'app-product',
@@ -27,24 +28,34 @@ export class ProductComponent implements OnInit{
   currentPage:number=1;
 
   constructor(private productService:ProductService,
-              private router:Router) {
+              private router:Router, public appState: AppStateService) {
   }
   ngOnInit() {
   this.searchProducts();
   }
   searchProducts(){
 
-    this.productService.searchProducts(this.keyword,this.currentPage,this.pageSize)
+    this.productService.searchProducts(
+      this.appState.productState.keyword,
+      this.appState.productState.currentPage,
+      this.appState.productState.pageSize)
       .subscribe({
         next:(resp) =>
         {
-          this.products=resp.body as Product[];
+          let products=resp.body as Product[];
           let totalProducts:number = parseInt(resp.headers.get('x-total-count')!);
-          this.totalePages = Math.floor(totalProducts / this.pageSize);
-          if (totalProducts % this.pageSize !=0)
+          //this.appState.productState.totaleProducts=totalProducts;
+          let totalePages=
+          Math.floor(totalProducts / this.appState.productState.pageSize);
+          if (totalProducts % this.appState.productState.pageSize !=0)
           {
-            this.totalePages=this.totalePages+1;
+            ++totalePages;
           }
+          this.appState.setProductState({
+            products : products,
+            totalProducts : totalProducts,
+            totalPages : totalePages,
+          })
         },
         error:err => {
           console.log(err);
@@ -71,7 +82,9 @@ export class ProductComponent implements OnInit{
     this.productService.deleteProduct(product).subscribe({
       next:value => {
         //this.getProducts();
-        this.products=this.products.filter(p=>p.id!=product.id)
+        //this.appState.productState.products=
+          //this.appState.productState.products.filter((p:any)=>p.id!=product.id)
+        this.searchProducts();
       }
   })
 }
@@ -88,7 +101,7 @@ export class ProductComponent implements OnInit{
   }*/
 
   handleGoTopage(page: number) {
-    this.currentPage=page;
+    this.appState.productState.currentPage=page;
     this.searchProducts();
   }
 
