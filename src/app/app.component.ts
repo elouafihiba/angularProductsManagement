@@ -4,6 +4,7 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 import {ReactiveFormsModule} from "@angular/forms";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {NavbarComponent} from "./navbar/navbar.component";
+import {AppErrorsComponent} from "./app-errors/app-errors.component";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import {NavbarComponent} from "./navbar/navbar.component";
     ReactiveFormsModule,
     DashboardComponent,
     NavbarComponent,
+    AppErrorsComponent,
 
   ],
   templateUrl: './app.component.html',
