@@ -1,0 +1,24 @@
+<div class="p-3">
+  <div class="card-body">
+    <div class="card-header">
+    Product ID = {{productId}}
+    </div>
+    <div class="card-body">
+      <form [formGroup]="productFormGroup" (submit)="updateProduct()">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" formControlName="name" placeholder="Product Name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+          <input class="form-control" formControlName="price">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Checked</label>
+          <input type="checkbox" class="form-check-input" formControlName="checked">
+        </div>
+        <button [disabled]="productFormGroup.invalid" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

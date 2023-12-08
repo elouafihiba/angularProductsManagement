@@ -5,6 +5,8 @@ import {ProductService} from "../services/product.service";
 import {Product} from "../model/product.model";
 import {Observable} from "rxjs";
 import {FormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-product',
@@ -12,6 +14,7 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     FormsModule,
+    RouterLink,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
@@ -19,16 +22,30 @@ import {FormsModule} from "@angular/forms";
 export class ProductComponent implements OnInit{
   public products :Array<Product>=[];
   public keyword : string="";
-  constructor(private productService:ProductService) {
+  totalePages:number=0;
+  pageSize:number=3;
+  currentPage:number=1;
+
+  constructor(private productService:ProductService,
+              private router:Router) {
   }
   ngOnInit() {
-  this.getProducts();
+  this.searchProducts();
   }
-  getProducts(){
+  searchProducts(){
 
-    this.productService.getProducts(1,4)
+    this.productService.searchProducts(this.keyword,this.currentPage,this.pageSize)
       .subscribe({
-        next:data =>this.products=data,
+        next:(resp) =>
+        {
+          this.products=resp.body as Product[];
+          let totalProducts:number = parseInt(resp.headers.get('x-total-count')!);
+          this.totalePages = Math.floor(totalProducts / this.pageSize);
+          if (totalProducts % this.pageSize !=0)
+          {
+            this.totalePages=this.totalePages+1;
+          }
+        },
         error:err => {
           console.log(err);
         }
@@ -59,12 +76,23 @@ export class ProductComponent implements OnInit{
   })
 }
 
-  searchProducts() {
-    this.productService.searchProducts(this.keyword).subscribe({
+  /*searchProducts() {
+    this.currentPage=1;
+    this.totalePages=0;
+    this.productService.searchProducts(this.keyword, this.currentPage,this.pageSize).subscribe({
       next : value => {
         this.products=value;
       }
     })
 
+  }*/
+
+  handleGoTopage(page: number) {
+    this.currentPage=page;
+    this.searchProducts();
+  }
+
+  handleEdit(product: Product) {
+  this.router.navigateByUrl(`/editProduct/${product.id}`)
   }
 }
