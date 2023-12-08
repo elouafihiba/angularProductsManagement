@@ -23,18 +23,21 @@ import {AppStateService} from "../services/app-state.service";
 export class ProductComponent implements OnInit{
   public products :Array<Product>=[];
   public keyword : string="";
-  totalePages:number=0;
+  totalPages:number=0;
   pageSize:number=3;
   currentPage:number=1;
 
   constructor(private productService:ProductService,
-              private router:Router, public appState: AppStateService) {
+              private router:Router,
+              public appState: AppStateService) {
   }
   ngOnInit() {
   this.searchProducts();
   }
   searchProducts(){
-
+    this.appState.setProductState({
+      status : "LOADING"
+    });
     this.productService.searchProducts(
       this.appState.productState.keyword,
       this.appState.productState.currentPage,
@@ -42,24 +45,29 @@ export class ProductComponent implements OnInit{
       .subscribe({
         next:(resp) =>
         {
+          //this.appState.productState.products=resp.body as Product[];
           let products=resp.body as Product[];
-          let totalProducts:number = parseInt(resp.headers.get('x-total-count')!);
+          let totalProducts:number=parseInt(resp.headers.get('x-total-count')!);
           //this.appState.productState.totaleProducts=totalProducts;
-          let totalePages=
-          Math.floor(totalProducts / this.appState.productState.pageSize);
-          if (totalProducts % this.appState.productState.pageSize !=0)
-          {
-            ++totalePages;
+          //this.appState.productState.totalePages =
+          let totalPages=
+            Math.floor(totalProducts / this.appState.productState.pageSize);
+          if (totalProducts % this.appState.productState.pageSize !=0 ) {
+            //++this.appState.productState.totalePages;
+            ++totalPages;
           }
           this.appState.setProductState({
-            products : products,
+            products :products,
             totalProducts : totalProducts,
-            totalPages : totalePages,
+            totalPages : totalPages,
+            status : "LOADED"
           })
         },
         error:err => {
-          console.log(err);
-        }
+          this.appState.setProductState({
+            status : "ERROR",
+            errorMessage :err
+          })        }
 
       })
 
@@ -83,7 +91,7 @@ export class ProductComponent implements OnInit{
       next:value => {
         //this.getProducts();
         //this.appState.productState.products=
-          //this.appState.productState.products.filter((p:any)=>p.id!=product.id)
+          //this.appState.productState.products.filter((p:any)=>p.id!=product.id);
         this.searchProducts();
       }
   })

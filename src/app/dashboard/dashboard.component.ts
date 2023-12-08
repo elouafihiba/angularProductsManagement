@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AppStateService} from "../services/app-state.service";
 
@@ -9,15 +9,15 @@ import {AppStateService} from "../services/app-state.service";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit{
-  ngOnInit(): void {
-  }
-  constructor(public appState:AppStateService) {
+export class DashboardComponent{
+
+  constructor(public appState : AppStateService) {
+
   }
 
-  totaleCeckedProducts() {
+  totaleCheckedProducts() {
     let checkedProducts =
-      this.appState.productState.products.filter((p:any)=>p.checked==true);
+      this.appState.productState.products.filter((p:any) => p.checked == true);
     return checkedProducts.length;
   }
 }

@@ -1,30 +1,6 @@
 {
   "products": [
     {
-      "id": 3,
-      "name": "Smart TV",
-      "price": 799.99,
-      "checked": false
-    },
-    {
-      "id": 4,
-      "name": "Wireless Earbuds",
-      "price": 129.99,
-      "checked": true
-    },
-    {
-      "id": 5,
-      "name": "Laptop",
-      "price": 1099.99,
-      "checked": true
-    },
-    {
-      "id": 6,
-      "name": "Tablette",
-      "price": 1099.99,
-      "checked": true
-    },
-    {
       "id": 7,
       "name": "TV",
       "price": 1099.99,
@@ -32,7 +8,7 @@
     },
     {
       "id": 8,
-      "name": "Smart Watch",
+      "name": "Smart Watch apple",
       "price": 1099.99,
       "checked": true
     },
