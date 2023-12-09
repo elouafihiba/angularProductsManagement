@@ -1,14 +1,8 @@
 {
   "products": [
     {
-      "id": 7,
-      "name": "TV",
-      "price": 1099.99,
-      "checked": true
-    },
-    {
       "id": 8,
-      "name": "Smart Watch apple",
+      "name": "Smart Watch apple2",
       "price": 1099.99,
       "checked": true
     },

@@ -4,6 +4,7 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import {AppStateService} from "../services/app-state.service";
+import {LoadingService} from "../services/loading.service";
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +26,9 @@ export class NavbarComponent {
     {title :"NewProduct","route":"/newProduct",icon:"safe"}
   ];
   currentAction: any;
-  constructor(public appState:AppStateService) {
+
+  constructor(public appState:AppStateService,
+              public loadingService : LoadingService) {
 
   }
   setCurrentAction(action: any) {
