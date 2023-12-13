@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import {AppStateService} from "../services/app-state.service";
@@ -28,7 +28,8 @@ export class NavbarComponent {
   currentAction: any;
 
   constructor(public appState:AppStateService,
-              public loadingService : LoadingService) {
+              public loadingService : LoadingService,
+              public router :Router) {
 
   }
   setCurrentAction(action: any) {
@@ -36,4 +37,12 @@ export class NavbarComponent {
 
   }
 
+  logout() {
+    this.appState.authState={};
+    this.router.navigateByUrl("/login");
+  }
+
+  login() {
+    this.router.navigateByUrl("/login");
+  }
 }
