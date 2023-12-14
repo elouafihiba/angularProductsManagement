@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import {DashboardComponent} from "../dashboard/dashboard.component";
 import {AppStateService} from "../services/app-state.service";
 import {LoadingService} from "../services/loading.service";
 
