@@ -20,21 +20,23 @@
          <tr *ngFor="let product of appState.productState.products ">
            <td>{{product.name}}</td>
            <td>{{product.price}}</td>
-           <td *ngIf="appState.authState.roles.includes('ADMIN')">
-              <button (click)="handleCheckProduct(product)"
-                      class="btn btn-outline-success">
-                <i [class]="product.checked?'bi bi-check':'bi bi-circle'"></i>
-              </button>
+<!--           <td *ngIf="appState.authState.roles && appState.authState.roles.includes('ADMIN')">-->
+           <td>
+             <button (click)="handleCheckProduct(product)" class="btn btn-outline-success">
+               <i [class]="product.checked?'bi bi-check':'bi bi-circle'"></i>
+             </button>
            </td>
-           <td *ngIf="appState.authState.roles.includes('ADMIN')">
-              <button (click)="handleDelete(product)"
-                      class="btn btn-outline-danger">
-                <i class="bi bi-trash"></i>
-              </button>
+
+<!--           <td *ngIf="appState.authState.roles && appState.authState.roles.includes('ADMIN')">-->
+           <td>
+             <button (click)="handleDelete(product)" class="btn btn-outline-danger">
+               <i class="bi bi-trash"></i>
+             </button>
            </td>
-           <td *ngIf="appState.authState.roles.includes('ADMIN')">
-             <button (click)="handleEdit(product)"
-                     class="btn btn-outline-success">
+
+<!--           <td *ngIf="appState.authState.roles && appState.authState.roles.includes('ADMIN')">-->
+           <td>
+             <button (click)="handleEdit(product)" class="btn btn-outline-success">
                <i class="bi bi-pencil"></i>
              </button>
            </td>
@@ -42,6 +44,15 @@
         </tbody>
       </table>
       <ul class="nav nav-pills">
+        <li *ngFor="let page of [].constructor(appState.productState.totalPages); let index=index">
+          <button (click)="handleGoTopage(index+1)"
+                  [ngClass]="appState.productState.currentPage===(index+1)?'btn btn-success m-1':'btn btn-outline-success m-1'"
+                  class="">
+            {{index+1}}
+          </button>
+        </li>
+      </ul>
+      <!--<ul class="nav nav-pills">
         <li *ngFor="let page of [].constructor(this.appState.productState.totalePages); let i=index">
           <button (click)="handleGoTopage(i+1)"
                   [ngClass]="this.appState.productState.currentPage==(i+1)?'btn btn-success m-1'
@@ -50,7 +61,7 @@
           {{(i+1)}}
           </button>
         </li>
-      </ul>
+      </ul>-->
     </div>
   </div>
 </div>

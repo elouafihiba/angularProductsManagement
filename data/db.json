@@ -1,18 +1,28 @@
 {
-  "users" : [
-    {"id": "user1",
+  "users": [
+    {
+      "id": "user1",
       "password": "MTIzNA==",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMSIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwLy9sb2NhbGhvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJoaWJhIiwibGFzdE5hbWUiOiJFbC1vdWFmaSIsImVtYWlsIjoiZWxvdWFmaWhpYmExQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiXX0.Gxg-vZGf-nJDz21asG04O7qrzb64RY8r5ccHd9v_Ttw"
     },
-    {"id": "user2",
+    {
+      "id": "user2",
       "password": "MTIzNA==",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwLy9sb2NhbGhvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJoaWJhIiwibGFzdE5hbWUiOiJFbC1vdWFmaSIsImVtYWlsIjoiZWxvdWFmaWhpYmExQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiXX0.Ri5UDYFhmO4AUykBl4G1k2B8ccqJsFAUbOdaSppNeDI"
     },
-    {"id": "admin",
+    {
+      "id": "admin",
       "password": "MTIzNA==",
-      "roles": ["USER","ADMIN"],
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwLy9sb2NhbGhvc3Q6ODg4OC9hdXRoIiwibmJmIjoxNTE2MjM5MDIyLCJmaXJzdG5hbWUiOiJoaWJhIiwibGFzdE5hbWUiOiJFbC1vdWFmaSIsImVtYWlsIjoiZWxvdWFmaWhpYmExQGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiLCJBRE1JTiJdfQ.SzG4SRCvNuvuflG8SgQfNPVrAx9yVye44upaxmnK4P8"
     }
   ],
@@ -21,7 +31,7 @@
       "id": 8,
       "name": "Smart Watch apple2",
       "price": 1099.99,
-      "checked": true
+      "checked": false
     },
     {
       "id": 9,
@@ -42,10 +52,76 @@
       "id": 11
     },
     {
-      "name": "ss",
-      "price": "0ss",
+      "name": "Tv",
+      "price": "400",
       "checked": false,
       "id": 12
+    },
+    {
+      "name": "Readme A9",
+      "price": "0ss",
+      "checked": false,
+      "id": 13
+    },
+    {
+      "name": "Oppo",
+      "price": "0ss",
+      "checked": false,
+      "id": 14
+    },
+    {
+      "name": "SONY",
+      "price": "0ss",
+      "checked": false,
+      "id": 15
+    },
+    {
+      "name": "LG",
+      "price": "0ss",
+      "checked": false,
+      "id": 16
+    },
+    {
+      "id": 17,
+      "name": "Lenovo",
+      "price": "6000",
+      "checked": true
+    },
+    {
+      "name": "JBL",
+      "price": "0ss",
+      "checked": false,
+      "id": 18
+    },
+    {
+      "name": "Headphones samsung",
+      "price": "0ss",
+      "checked": false,
+      "id": 19
+    },
+    {
+      "name": "hghjf",
+      "price": "0ss",
+      "checked": false,
+      "id": 20
+    },
+    {
+      "name": "dhgfd",
+      "price": "0ss",
+      "checked": false,
+      "id": 21
+    },
+    {
+      "name": "ssrrdcc",
+      "price": "0ss",
+      "checked": false,
+      "id": 22
+    },
+    {
+      "name": "kfdjdf",
+      "price": "0ss",
+      "checked": false,
+      "id": 23
     }
   ]
 }

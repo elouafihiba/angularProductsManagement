@@ -5,8 +5,6 @@ import {NewProductComponent} from "./new-product/new-product.component";
 import {EditProductComponent} from "./edit-product/edit-product.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminTemplateComponent} from "./admin-template/admin-template.component";
-import {AuthorizationGuard} from "./guards/authorization.guard";
-import {AuthenticationGuard} from "./guards/authentication.guard";
 import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
 
 export const routes: Routes = [
@@ -16,11 +14,13 @@ export const routes: Routes = [
     //canActivate:[AuthenticationGuard],
     children : [
       {path:"products",component:ProductComponent,},
-      {path:"newProduct", component:NewProductComponent , canActivate:[AuthorizationGuard],
-        data :{requiredRoles :'ADMIN'}
+      {path:"newProduct", component:NewProductComponent ,
+        //canActivate:[AuthorizationGuard],
+        //data :{requiredRoles :'ADMIN'}
       },
-      {path:"editProduct/:id",component:EditProductComponent,canActivate:[AuthorizationGuard],
-        data :{requiredRoles :'ADMIN'}
+      {path:"editProduct/:id",component:EditProductComponent,
+        //canActivate:[AuthorizationGuard],
+        //data :{requiredRoles :'ADMIN'}
       },
       {path:"home",component:HomeComponent},
       {path:"notAuthorized",component:NotAuthorizedComponent,},
