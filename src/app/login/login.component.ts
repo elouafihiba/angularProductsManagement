@@ -20,8 +20,9 @@ export class LoginComponent implements OnInit{
   errorMessage =undefined;
   constructor(private formBuilder:FormBuilder,
               private router : Router,
-              private authService:AuthService) {
+              private authService : AuthService) {
   }
+  //cest quoi une app flutter
   ngOnInit(): void {
     this.formLogin=this.formBuilder.group({
       username : this.formBuilder.control(""),

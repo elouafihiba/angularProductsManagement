@@ -42,6 +42,11 @@ export class NavbarComponent {
   }
 
   login() {
+    console.log('Login button clicked');
+
     this.router.navigateByUrl("/login");
+
+    console.log('Login successful');
+
   }
 }

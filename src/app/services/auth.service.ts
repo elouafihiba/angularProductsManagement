@@ -9,8 +9,10 @@ import {jwtDecode} from "jwt-decode";
 })
 export class AuthService {
 
-  constructor(private http : HttpClient, private appState:AppStateService) { }
-  async login(username: string,password: string){
+  constructor(
+    private http : HttpClient,
+    private appState: AppStateService) { }
+  async login(username: string, password: string){
   let user:any= await firstValueFrom(this.http.get("http://localhost:8089/users/"+username));
   //console.log(user.password);
   //console.log(btoa(user.password));
@@ -21,7 +23,7 @@ export class AuthService {
         isAuthenticated: true,
         username : decodeJwt.sub,
         roles : decodeJwt.roles,
-        token : decodeJwt.token
+        token : user.token
       });
       return Promise.resolve(true);
   }else{
